@@ -14,7 +14,8 @@ const AddStudent = () => {
       "dob":"",
       "emailId":"",
       "password":"",
-      "confirmPassword":""
+      "confirmPassword":"",
+      "img":"",
       
     
     }
@@ -98,6 +99,12 @@ const AddStudent = () => {
 
                 <lablel className="form-label">Confirm Password</lablel>
                 <input type="password"  id="" className="form-control" name='confirmPassword' value={data.confirmPassword}  onChange={inputHandler}/>
+
+              </div>
+              <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+
+                <lablel className="form-label">upload Photo</lablel>
+                <input type="file"  id="" className="form-control" name='img' value={data.img}  onChange={inputHandler}/>
 
               </div>
               <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">

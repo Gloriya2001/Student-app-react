@@ -1,22 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const ViewAll = () => {
 
 
-    const [data, changeData] = useState(
-
-
-        [
-
-            { "abc": "ddd", "aa": 3 },
-            { "abc": "rrr", "aa": 4 },
-            { "abc": "yyy", "aa": 6 }
-
-        ]
-
-    )
-
+    const [data, changeData] = useState([])
+    const fetchData = () => {
+        axios.get("").then(
+            (response) => { changeData(response.data) }
+        ).catch().finally()
+    }
+useEffect(()=>{fetchData()},[])
 
 
 
@@ -38,14 +34,15 @@ const ViewAll = () => {
                                 (value, index) => {
 
 
-                                   return <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                                    return <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
 
                                         <div className="card">
-                                            <img src="https://media.istockphoto.com/id/1365601848/photo/portrait-of-a-young-woman-carrying-her-schoolbooks-outside-at-college.jpg?s=612x612&w=0&k=20&c=EVxLUZsL0ueYFF1Nixit6hg-DkiV52ddGw_orw9BSJA=" class="card-img-top" alt="...">
+                                            <img src={value.img} class="card-img-top" alt="...">
                                             </img>
                                             <div className="card-body">
-                                                <h5 className="card-title">Name : {value.abc}</h5>
-                                                <a href="#" class="btn btn-primary">Show profile</a>
+                                                <h5 className="card-title">{value.name}</h5>
+                                                <h3>{value.collegeName}</h3>
+                                                <Link to="#" class="btn btn-primary"></Link>
                                             </div>
                                         </div>
 
